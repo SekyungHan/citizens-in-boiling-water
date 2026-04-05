@@ -1,0 +1,32 @@
+{
+  "Bastani_student": {
+    "beta": 0.2471,
+    "timescale": "sessions",
+    "domain": "education",
+    "decline": 0.17
+  },
+  "Lancet_endoscopy": {
+    "beta": 0.0901,
+    "timescale": "weeks",
+    "domain": "medicine",
+    "decline": 0.21
+  },
+  "GPS_spatial": {
+    "beta": 0.0129,
+    "timescale": "months",
+    "domain": "cognition",
+    "decline": 0.3
+  },
+  "FAA_autopilot": {
+    "beta": 0.0026,
+    "timescale": "months",
+    "domain": "aviation",
+    "decline": 0.38
+  },
+  "PISA_calculator": {
+    "beta": 0.1,
+    "timescale": "years",
+    "domain": "education",
+    "decline": 0.056
+  }
+}

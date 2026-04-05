@@ -1,19 +1,37 @@
-# Citizens in Boiling Water: An AI Dystopia
+# Citizens in Boiling Water
 
 **Author**: Sekyung Han (한세경)
 **Affiliation**: Department of Electrical Engineering, Kyungpook National University, Daegu, South Korea
 **Year**: 2026
-**Language**: English (translated from Korean)
 
-## About
+## Overview
 
-*Citizens in Boiling Water* is a literary work that traces the quiet transformation of a single family—an engineering professor, his wife, and their daughter Sua—over two decades of incremental AI adoption (2025–2047). Through eight chapters, the novel depicts how each step of delegation appears reasonable and beneficial, yet their cumulative effect is the irreversible erosion of human judgment, agency, and the capacity for democratic resistance.
+This repository contains:
 
-This novel served as the conceptual starting point for a formal mathematical investigation of human–AI dependency dynamics:
+1. **Novel** — *Citizens in Boiling Water: An AI Dystopia*, a literary companion exploring the themes of human–AI dependency through narrative fiction
+2. **Simulation code** — Reproducibility package for the accompanying research paper
 
-> Park, J., Kim, M. & Han, S. "The enrichment paradox: critical capability thresholds and the antifragility of periodic failure in human–AI symbiosis." *PNAS Nexus* (2026, submitted).
+> Park, J., Kim, M. & Han, S. "The enrichment paradox: critical capability thresholds and irreversible dependency in human–AI symbiosis." *Nature Human Behaviour* (2026, submitted).
 
-## Contents
+## Reproducibility code
+
+The `code/` directory contains all simulation code and input data needed to reproduce every figure and numerical result in the manuscript. See [`code/README.md`](code/README.md) for detailed instructions.
+
+```bash
+cd code
+pip install -r requirements.txt
+make    # generates all figures and claims
+```
+
+### Key outputs
+
+- 7 main-text figures + 5 SI figures
+- `paper_claims.json` — all numerical claims (single source of truth)
+- PISA 15-country panel analysis with bootstrap confidence intervals
+
+## Novel
+
+*Citizens in Boiling Water* traces the quiet transformation of a single family over two decades of incremental AI adoption (2025–2047). Through eight chapters, it depicts how each step of delegation appears reasonable and beneficial, yet their cumulative effect is the irreversible erosion of human judgment, agency, and the capacity for democratic resistance.
 
 | Chapter | Title | Year |
 |---------|-------|------|
@@ -25,20 +43,31 @@ This novel served as the conceptual starting point for a formal mathematical inv
 | 6 | First Vote | 2038 |
 | 7 | There Is No Bastille | 2041 |
 | 8 | Tomorrow's Temperature | — |
-| — | Commentary: This Novel Is a Confession | — |
-| — | Post-credit: 2047 | — |
 
-## Files
+### Files
 
 - `citizens_in_boiling_water.pdf` — Full English translation (PDF, with illustrations)
 - `novel_en.typ` — Typst source file
 
 ## License
 
-This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- Novel: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- Code: [MIT License](LICENSE)
 
 ## Citation
 
+### Paper
+```bibtex
+@article{park2026enrichment,
+  author  = {Park, Jeongju and Kim, Musu and Han, Sekyung},
+  title   = {The enrichment paradox: critical capability thresholds and irreversible dependency in human--{AI} symbiosis},
+  journal = {Nature Human Behaviour},
+  year    = {2026},
+  note    = {Submitted}
+}
+```
+
+### Novel
 ```bibtex
 @misc{han2026citizens,
   author    = {Han, Sekyung},

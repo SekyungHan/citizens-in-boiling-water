@@ -1,0 +1,87 @@
+{
+  "description": "AI capability K mapping: K = AI_score / human_expert_score, capped at 1.0",
+  "date_compiled": "2026-03-15",
+  "human_baselines": {
+    "mmlu": {
+      "metric": "MMLU (5-shot)",
+      "human_expert_score": 89.8,
+      "note": "Human expert performance reported in Hendrycks et al. 2021"
+    },
+    "humaneval": {
+      "metric": "HumanEval (pass@1)",
+      "human_expert_score": 100.0,
+      "note": "Professional developer baseline; theoretical ceiling"
+    },
+    "usmle": {
+      "metric": "USMLE Step 1-3 composite",
+      "human_expert_score": 87.0,
+      "note": "Expert physician ~85-90%; using 87% midpoint"
+    },
+    "bar_exam": {
+      "metric": "Uniform Bar Exam (MBE + MEE + MPT)",
+      "human_expert_score": 90.0,
+      "note": "Top 10% of test-takers; passing ~68%"
+    }
+  },
+  "models": {
+    "GPT-3.5-Turbo": {
+      "release_date": "2023-03",
+      "mmlu": {"score": 70.0, "K": 0.78},
+      "humaneval": {"score": 48.1, "K": 0.48},
+      "usmle": {"score": 60.0, "K": 0.69, "note": "Passed USMLE Step 1 & 2 at ~60% accuracy (Kung et al. 2023)"},
+      "bar_exam": {"score": 30.0, "K": 0.33, "note": "Failed; ~10th percentile, estimated ~30% scaled score (OpenAI 2023)"},
+      "K_avg": 0.58
+    },
+    "GPT-4": {
+      "release_date": "2023-03",
+      "mmlu": {"score": 86.4, "K": 0.96},
+      "humaneval": {"score": 67.0, "K": 0.67},
+      "usmle": {"score": 86.7, "K": 1.00, "note": "Expert-level on all USMLE steps (Nori et al. 2023)"},
+      "bar_exam": {"score": 75.0, "K": 0.83, "note": "~60th-90th percentile on UBE; Martinez 2024 re-evaluation suggests 60th-69th, not 90th as OpenAI claimed"},
+      "K_avg": 0.86
+    },
+    "GPT-4o": {
+      "release_date": "2024-05",
+      "mmlu": {"score": 88.7, "K": 0.99},
+      "humaneval": {"score": 90.2, "K": 0.90},
+      "usmle": {"score": 89.0, "K": 1.00, "note": "Estimated from domain performance improvements"},
+      "bar_exam": {"score": 80.0, "K": 0.89, "note": "Estimated improvement over GPT-4"},
+      "K_avg": 0.94
+    },
+    "Claude-3.5-Sonnet": {
+      "release_date": "2024-06",
+      "mmlu": {"score": 88.7, "K": 0.99},
+      "humaneval": {"score": 92.0, "K": 0.92},
+      "usmle": {"score": 88.0, "K": 1.00, "note": "Estimated from medical reasoning benchmarks"},
+      "bar_exam": {"score": 78.0, "K": 0.87, "note": "Estimated from legal reasoning performance"},
+      "K_avg": 0.94
+    },
+    "GPT-4.1": {
+      "release_date": "2025-04",
+      "mmlu": {"score": 90.2, "K": 1.00},
+      "humaneval": {"score": 93.4, "K": 0.93},
+      "usmle": {"score": 90.0, "K": 1.00, "note": "Estimated"},
+      "bar_exam": {"score": 82.0, "K": 0.91, "note": "Estimated"},
+      "K_avg": 0.96
+    }
+  },
+  "k_star_analysis": {
+    "threshold": 0.85,
+    "interpretation": "K* = 0.85 is the critical capability threshold in our model where AI becomes 'good enough' that humans rationally delegate most tasks, triggering accelerated skill decay",
+    "findings": [
+      "GPT-3.5 (K_avg=0.58): Well below K*. AI useful but clearly inferior to experts. Delegation partial.",
+      "GPT-4 (K_avg=0.86): Just crossed K*. First model where broad delegation becomes rational. This coincides with observed deskilling in Bastani et al. 2025.",
+      "GPT-4o / Claude 3.5 (K_avg=0.94): Well above K*. Near-expert across domains. Massive delegation incentive.",
+      "GPT-4.1+ (K_avg=0.96): Approaching ceiling. Human expertise increasingly redundant for delegated tasks.",
+      "Key insight: The GPT-3.5 -> GPT-4 jump (0.58 -> 0.86) crossed K* in ~12 months. This is the inflection point our model predicts as dangerous.",
+      "Caveat: GPT-4 bar exam '90th percentile' claim contested by Martinez 2024; likely 60th-69th. This doesn't change K_avg significantly.",
+      "Domain variation matters: coding K crossed threshold later than knowledge/reasoning K. This predicts domain-specific deskilling timelines."
+    ],
+    "timeline": {
+      "pre_2023": "K < 0.5 for most domains. AI as tool, not substitute.",
+      "2023_Q1": "GPT-4 crosses K* (0.86). Rational delegation begins.",
+      "2024": "GPT-4o/Claude 3.5 at K~0.94. Delegation near-universal for covered domains.",
+      "2025_plus": "K approaching 1.0. The 'symbiosis trap' phase - maximum delegation, maximum deskilling risk."
+    }
+  }
+}

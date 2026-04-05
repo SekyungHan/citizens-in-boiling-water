@@ -1,0 +1,8 @@
+year,oecd_avg,singapore,japan,korea,estonia,switzerland,canada,netherlands,uk,australia,finland,germany,us,change_from_prev,calculator_smartphone_adoption_note
+2003,500,,,542,,527,532,538,,524,544,503,483,baseline,"Graphing calculators common in schools; smartphones not yet available"
+2006,498,,,547,,530,527,531,495,520,548,504,474,-2,"Graphing calculators widespread; early smartphones (2007 iPhone launch)"
+2009,496,562,529,546,,534,527,526,492,514,541,513,487,-2,"Smartphone adoption ~20%; Wolfram Alpha launched 2009"
+2012,494,573,536,554,521,531,518,523,494,504,519,514,481,-2,"Smartphone adoption ~55%; Khan Academy mainstream; tablet classrooms"
+2015,490,564,532,524,520,521,516,512,492,494,511,506,470,-4,"Smartphone adoption ~70%; Photomath launched 2014"
+2018,489,569,527,526,523,515,512,519,502,491,507,500,478,-1,"Smartphone adoption ~80%; Chegg/homework help apps ubiquitous"
+2022,472,575,536,527,510,508,497,493,489,487,484,475,465,-17,"Smartphone adoption ~90%; ChatGPT launched Nov 2022; record decline"
